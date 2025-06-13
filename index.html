@@ -3,17 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Simple Purple Page</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="min-h-screen bg-purple-50 flex items-center justify-center">
-  <div class="fixed top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4">
-  <button class="px-6 py-2 rounded-full bg-purple-200 text-sm text-gray-700 hover:bg-purple-300 transition">
-    home
-  </button>
-  <button class="px-6 py-2 rounded-full bg-purple-200 text-sm text-gray-700 hover:bg-purple-300 transition">
-    about
-  </button>
-</div>
+
+  <div class="fixed top-1/4 -left-4 -translate-y-1/2 flex flex-col gap-4">
+    <button id="btnHome"
+    class="px-10 py-2 rounded-r-full bg-purple-300 translate-x-4 text-sm text-gray-700 transition-all transform hover:translate-x-4">
+      home
+    </button>
+    <button id="btnAbout"
+    class="px-10 py-2 rounded-r-full bg-purple-200 text-sm text-gray-700 transition-all transform hover:translate-x-4">
+      about
+    </button>
+    <button id="btnProjects"
+    class="px-10 py-2 rounded-r-full bg-purple-200 text-sm text-gray-700 transition-all transform hover:translate-x-4">
+      projects
+    </button>
+  </div>
+
+  <div id="home" class="block text-center">
+    <h1 class="text-xl font-bold text-purple-800">Welcome to Home!</h1>
+    <p>This is the home section.</p>
+  </div>
+
+  <div id="about" class="hidden text-center">
+    <h1 class="text-xl font-bold text-purple-800">About Me</h1>
+    <p>This is the about section.</p>
+  </div>
+
+  <div id="projects" class="hidden text-center">
+    <h1 class="text-xl font-bold text-purple-800">My Project</h1>
+    <p>This is the projects section.</p>
+  </div>
+
 </body>
+<script>
+  const buttons = ['Home', 'About', 'Projects'];
+  var active = 'Home';
+
+  buttons.forEach((name) => {
+    $(`#btn${name}`).click(function () {
+      $(`#${active.toLowerCase()}`).hide();
+      $(`#btn${active}`)
+        .removeClass('bg-purple-300 translate-x-4')
+        .addClass('bg-purple-200');
+
+      active = name;
+      $(`#${active.toLowerCase()}`).show();
+      $(`#btn${active}`)
+        .removeClass('bg-purple-200')
+        .addClass('bg-purple-300 translate-x-4');
+    });
+  });
+</script>
 </html>
