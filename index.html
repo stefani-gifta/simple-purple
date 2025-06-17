@@ -8,6 +8,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body class="min-h-screen bg-purple-50 flex items-center justify-around flex-col">
 
@@ -24,6 +25,10 @@
     class="px-10 py-2 rounded-r-full bg-purple-200 text-sm text-gray-700 transition-all transform hover:translate-x-4">
       project
     </button>
+    <button id="btnExperiments"
+    class="px-10 py-2 rounded-r-full bg-purple-200 text-sm text-gray-700 transition-all transform hover:translate-x-4">
+      exp
+    </button>
   </div>
 
   <header class="fixed text-gray-500 top-10">
@@ -38,12 +43,25 @@
 
     <div id="about" class="hidden text-center">
       <h1 class="text-xl font-bold text-purple-800 mb-5">About Me</h1>
-      <p>Hi, it's Gifta here! <br> I'm currently an undergraduate Computer Science student at BINUS University.</p>
+      <p>Hi, it's <div class="animate-bounce inline-block">Gifta</div> here! <br> I'm currently an undergraduate Computer Science student at BINUS University.</p>
     </div>
 
     <div id="projects" class="hidden text-center">
       <h1 class="text-xl font-bold text-purple-800 mb-5">Past Projects</h1>
-      <p>Stalk me on <a href="https://github.com/stefani-gifta" class="text-purple-400 shadow-xl hover:bg-purple-300 hover:text-white transition duration-500">Github</a>!</p>
+      <p>Stalk me on <br>
+        <a href="https://github.com/stefani-gifta" target="_blank"
+        class="animate-pulse text-purple-400 shadow-xl hover:bg-purple-300 hover:text-white transition duration-500">
+        <span data-feather="github" class="w-4 inline-block"></span> Github</a>!</p>
+        
+    </div>
+
+    <div id="experiments" class="hidden">
+      <button class="bg-purple-200 rounded-full p-2 lowercase italic text-xs" onclick="document.body.classList.toggle('bg-purple-50'); document.body.classList.toggle('bg-gray-100')">
+        Toggle Theme
+      </button>
+      <!-- <button class="cursor-help bg-purple-200 hover:bg-purple-400 active:bg-purple-600 focus:ring">
+        click click click
+      </button> -->
     </div>
   </div>
 
@@ -51,9 +69,10 @@
     Copyright &copy; 2025
   </footer>
 
+<script>feather.replace()</script>
 </body>
 <script>
-  const buttons = ['Start', 'Home', 'About', 'Projects'];
+  const buttons = ['Home', 'About', 'Projects', 'Experiments'];
   var active = 'Home';
 
   buttons.forEach((name) => {
