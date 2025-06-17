@@ -55,13 +55,22 @@
         
     </div>
 
-    <div id="experiments" class="hidden">
-      <button class="bg-purple-200 rounded-full p-2 lowercase italic text-xs" onclick="document.body.classList.toggle('bg-purple-50'); document.body.classList.toggle('bg-gray-100')">
+    <div id="experiments" class="hidden text-center">
+      <button class="bg-purple-200 rounded-full m-2 p-2 lowercase italic text-xs" onclick="document.body.classList.toggle('bg-purple-50'); document.body.classList.toggle('bg-gray-100')">
         Toggle Theme
       </button>
-      <!-- <button class="cursor-help bg-purple-200 hover:bg-purple-400 active:bg-purple-600 focus:ring">
-        click click click
-      </button> -->
+      <div class="flex items-center gap-2 flex-col m-1">
+        <button id="append" onclick="$(this).append(' click'); $('#reset').show()" class="m-1 cursor-help bg-purple-200 hover:bg-purple-400 active:bg-purple-600 focus:ring">
+          click me
+        </button>
+        <button id="reset" onclick="$('#append').html('click'); $(this).hide()" class="hidden bg-purple-200 m-1">
+          reset clicks
+        </button>
+      </div>
+      <div class="flex items-center gap-2 flex-col m-1">
+        <button class="m-2 bg-purple-200 p-2 lowercase text-xs rounded-full italic" onclick="$('#toggle').slideToggle()">Toggle Info</button>
+        <div id="toggle" class="w-3/6 bg-purple-200 hidden">boom</div>
+      </div>
     </div>
   </div>
 
