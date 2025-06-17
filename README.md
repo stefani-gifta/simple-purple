@@ -10,7 +10,7 @@ Lil web experiment because I love purple and wanted to have fun playing with Tai
     </td>
     <td>
       <img src="./screenshot-r.png" alt="On hover" style="height:360px;">
-      <div>Small screen, image hovered</div>
+      <div>Small page & hover</div>
     </td>
   </tr>
 </table>
