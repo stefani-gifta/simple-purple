@@ -4,7 +4,13 @@ Lil web experiment because I love purple and wanted to have fun playing with Tai
 
 <table>
   <tr>
-    <td><img src="./screenshot.png" alt="Screenshot 1" width="100%"></td>
-    <td><img src="./screenshot-r.png" alt="Screenshot 2" width="100%"></td>
+    <td>
+      <img src="./screenshot.png" alt="Homepage" style="height:300px;">
+      <div>Homepage</div>
+    </td>
+    <td>
+      <img src="./screenshot-r.png" alt="On hover" style="height:300px; object-fit:contain;">
+      <div>On hover</div>
+    </td>
   </tr>
 </table>
