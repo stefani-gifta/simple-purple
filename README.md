@@ -1,4 +1,4 @@
 Lil web experiment because I love purple and wanted to have fun playing with Tailwind & jQuery 💜
 
-## 📸 Preview
+## Preview
 ![Screenshot](./screenshot.png)
