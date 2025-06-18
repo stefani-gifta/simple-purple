@@ -10,7 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
-<body class="min-h-screen bg-purple-50 flex items-center justify-around flex-col">
+<body class="min-h-screen bg-purple-50 flex items-center justify-around flex-col overflow-hidden">
 
   <div class="fixed top-1/4 -left-4 -translate-y-1/2 flex flex-col gap-4 z-100">
     <button id="btnHome"
@@ -34,6 +34,18 @@
   <header class="fixed text-gray-500 top-10">
     Stefani Gifta Ganda
   </header>
+
+  <div id="bttrly-animation" class="w-8 h-8 absolute top-1/2 left-1/2 z-50">
+    <img id="purp-bttrly-op" class="absolute w-full h-full"
+      src="./purp-bttrly-op.png">
+    <img id="purp-bttrly-cl" class="hidden w-full h-full"
+      src="./purp-bttrly-cl.png">
+  </div>
+  <div id="bttrly-btns" class="absolute flex gap-2 flex-wrap right-5 bottom-5 transition-all duration-200">
+    <button id="remove-bttrly-btn" onclick="toggleRemoveBtn()" class="hidden bg-purple-200 rounded-full px-2 py-1 text-xs italic hover:bg-purple-300">remove butterflies</button>
+    <button id="stop-bttrly-btn" onclick="stopBttrlyAnimation()" class="hidden bg-purple-200 rounded-full px-2 py-1 text-xs italic hover:bg-purple-300">stop the breeding</button>
+    <button id="start-bttrly-btn" class="hidden bg-purple-200 rounded-full px-2 py-1 text-xs italic hover:bg-purple-300">let them breed!</button>
+  </div>
 
   <div class="w-1/3 flex flex-col justify-center items-center">
     <div id="home" class="hidden text-center">
@@ -69,13 +81,12 @@
       <p>I built this to play around with Tailwind and jQuery for fun.</p>
     </div>
 
-    <div id="projects" class="hidden text-center">
+    <div id="projects" class="md:w-1/2 hidden text-center">
       <h1 class="text-xl font-bold text-purple-800 mb-5">Past Projects</h1>
       <p>Stalk me on <br>
         <a href="https://github.com/stefani-gifta" target="_blank"
-        class="animate-pulse text-purple-400 shadow-xl hover:bg-purple-300 hover:text-white transition duration-500">
+        class="text-purple-400 shadow-xl hover:bg-purple-300 hover:text-white transition duration-500">
         <span data-feather="github" class="w-4 inline-block"></span> Github</a>!</p>
-        
     </div>
 
     <div id="experiments" class="hidden text-center">
@@ -103,6 +114,55 @@
 
 <script>feather.replace()</script>
 </body>
+<script>
+  const $bttrlyArray = [];
+  var bttrlyInterval = null;
+
+  $(document).ready(function () {
+    $('#bttrly-animation').hide();
+    startBttrlyAnimation();
+  });
+  function startBttrlyAnimation() {
+    bttrlyInterval = setInterval(function () {
+      const $newBttrly = $('#bttrly-animation').clone().removeAttr('id').fadeIn();
+      const randX = Math.floor(Math.random() * ($(window).width() - 100));
+      const randY = Math.floor(Math.random() * ($(window).height() - 100));
+      $newBttrly.css({
+        position: 'absolute',
+        top: randY + 'px',
+        left: randX + 'px',
+        transform: Math.random() <= 0.5 ? 'scaleX(-1)' : 'scaleX(1)'
+      });
+      setInterval(function () {
+        $newBttrly.find('img').toggle();
+      }, 300);
+      $newBttrly.hover(function () {
+        $(this).fadeToggle();
+      });
+      $('body').append($newBttrly);
+      $bttrlyArray.push($newBttrly);
+      $('#remove-bttrly-btn').show();
+      $('#stop-bttrly-btn').show();
+      $('#start-bttrly-btn').hide();
+      $('#start-bttrly-btn').text('let them breed!');
+    }, 3000);
+  }
+  function toggleRemoveBtn() {
+    $bttrlyArray.forEach($el => $el.remove());
+    $bttrlyArray.length = 0;
+    $('#remove-bttrly-btn').hide();
+  }
+  function stopBttrlyAnimation() {
+    clearInterval(bttrlyInterval);
+    $('#stop-bttrly-btn').hide();
+    $('#start-bttrly-btn').show();
+  }
+  $('#start-bttrly-btn').on('click', function () {
+    const $btn = $(this);
+    $btn.text('wait ...');
+    startBttrlyAnimation();
+  });
+</script>
 <script>
   const buttons = ['Home', 'About', 'Projects', 'Experiments'];
   var active = 'Home';
