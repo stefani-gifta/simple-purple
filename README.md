@@ -1,4 +1,4 @@
-Lil web experiment because I love purple and wanted to have fun playing with Tailwind & jQuery
+Lil [simple purple web](https://stefani-gifta.github.io/simple-purple/) because I love purple and wanted to have fun experimenting with Tailwind & jQuery
 
 ## Preview
 
