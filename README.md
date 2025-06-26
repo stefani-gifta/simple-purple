@@ -14,3 +14,7 @@ Lil [simple purple web](https://stefani-gifta.github.io/simple-purple/) because 
     </td>
   </tr>
 </table>
+
+## Acknowledgments
+
+* Uses icon from [unpkg.com](https://unpkg.com/) for Feather Icons.
