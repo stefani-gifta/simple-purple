@@ -5,6 +5,7 @@ $(document).ready(function () {
   $('#bttrly-animation').hide();
   startBttrlyAnimation();
 });
+
 function startBttrlyAnimation() {
   bttrlyInterval = setInterval(function () {
     const $newBttrly = $('#bttrly-animation').clone().removeAttr('id').fadeIn();
@@ -50,6 +51,9 @@ $('#start-bttrly-btn').on('click', function () {
 
 const buttons = ['Home', 'About', 'Projects', 'Experiments'];
 var active = 'Home';
+$(`#${active.toLowerCase()}`).show();
+$(`#btn${active}`)
+      .addClass('bg-purple-300 translate-x-4 shadow-xl');
 
 buttons.forEach((name) => {
   $(`#btn${name}`).click(function () {
