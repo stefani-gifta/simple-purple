@@ -17,4 +17,4 @@ Lil [simple purple web](https://stefani-gifta.github.io/simple-purple/) because 
 
 ## Acknowledgments
 
-Uses icon from [Feather Icons](https://feathericons.com/)
+Uses the cute icon from [Feather Icons](https://feathericons.com/)
